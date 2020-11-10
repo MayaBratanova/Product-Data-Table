@@ -2,29 +2,46 @@ import React from 'react';
 import ProductCategoryRow from './ProductCategoryRow';
 import ProductRow from './ProductRow';
 
-class ProductTable extends React.Component {
-  render() {
-    const products = this.props.products;
+const ProductTable = ({ products, inStock, filterText }) => {
 
-    return (
-      <table className="filterable-table">
-        <thead>
-          <tr>
-            <th>Name</th>
-            <th>Price</th>
-          </tr>
-        </thead>
-        <tbody>
-          {products.map(product => (
-            <>
-              <ProductCategoryRow category={product.category} key={product.category} />
-              <ProductRow name={product.name} price={product.price} key={product.name}/>
-            </>
-          ))}
-        </tbody>
-      </table>
+  const rows = [];
+  let lastCategory = null;
+
+  products.forEach((product) => {
+    if (product.name.indexOf(filterText) === -1) {
+      return;
+    }
+    if (inStock && !product.stocked) {
+      return;
+    }
+    if (product.category !== lastCategory) {
+      rows.push(
+        <ProductCategoryRow
+          category={product.category}
+          key={product.category} />
+      );
+    }
+    rows.push(
+      <ProductRow
+        product={product}
+        key={product.name}
+      />
     );
-  };
+
+    lastCategory = product.category;
+  });
+
+  return (
+    <table className="filterable-table">
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Price</th>
+        </tr>
+      </thead>
+      <tbody>{rows}</tbody>
+    </table>
+  );
 };
 
 export default ProductTable;

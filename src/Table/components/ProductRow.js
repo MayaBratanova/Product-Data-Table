@@ -1,14 +1,15 @@
 import React from 'react';
+import className from 'classnames';
 
-class ProductRow extends React.Component {
-  render() {
-    return (
-      <tr>
-        <td className="product-name">{this.props.name}</td>
-        <td className="product-price">{this.props.price}</td>
-      </tr>
-    )
-  }
+const ProductRow = ({ product }) => {
+  const productClass = className("product-name", { 'out-of-stock': !product.stocked })
+
+  return (
+    <tr>
+      <td className={productClass}>{product.name}{!product.stocked && " - out of stock"}</td>
+      <td className="product-price">{product.price}</td>
+    </tr>
+  )
 }
 
 export default ProductRow;

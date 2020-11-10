@@ -8,14 +8,14 @@ html {
 
 .filterable-table-container {
   padding: 2em;
-  max-width: 20em;
+  max-width: 25em;
   background-color: #fafafa;
 }
 
 .filterable-table {
   background-color: #eee;
   padding: 0.7em;
-  width: 15em;
+  width: 20em;
 }
 
 tr {
@@ -37,7 +37,7 @@ th, td {
 
 .text {
   padding-bottom: 0.3em;
-  max-width: 15em;
+  max-width: 25em;
 }
 
 .text input {
@@ -47,4 +47,8 @@ th, td {
 
 .product-price {
   text-align: right;
+}
+
+.out-of-stock {
+  color: red;
 }
