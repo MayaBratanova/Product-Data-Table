@@ -1,0 +1,50 @@
+html {
+  box-sizing: border-box;
+}
+
+*, *:after, *:before {
+  box-sizing: inherit;
+}
+
+.filterable-table-container {
+  padding: 2em;
+  max-width: 20em;
+  background-color: #fafafa;
+}
+
+.filterable-table {
+  background-color: #eee;
+  padding: 0.7em;
+  width: 15em;
+}
+
+tr {
+  border: 1px solid black;
+  display: flex;
+  justify-content: space-between;
+}
+
+th, td {
+  padding: 0.3em;
+  text-align: left;
+  display: inline-block;
+}
+
+.checkbox {
+  display: block;
+  padding-bottom: 1em;
+}
+
+.text {
+  padding-bottom: 0.3em;
+  max-width: 15em;
+}
+
+.text input {
+  display: inline-block;
+  width: 100%;
+}
+
+.product-price {
+  text-align: right;
+}
