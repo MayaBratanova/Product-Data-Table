@@ -10,12 +10,10 @@ const productsData = [
   {category: 'Electronics', price: '$199.99', stocked: true, name: 'Nexus 7'}
 ];
 
-class Table extends React.Component {
-  render() {
-    return (
-      <FilterableProductTable products={productsData} />
-    )
-  }
+const Table = ({title}) => {
+  return (
+    <FilterableProductTable products={productsData} title={title}/>
+  )
 }
 
 export default Table;
