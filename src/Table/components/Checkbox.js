@@ -1,8 +1,12 @@
 import React from 'react';
+import className from 'classnames';
 
-const Checkbox = ({ checked, onChange }) => {
+const Checkbox = ({ checked, onChange, size }) => {
+	
+	const radioClasses = className("checkbox", {"large": size});
+
 	return (
-		<span className="checkbox">
+		<span className={radioClasses}>
 			<input 
 				type="checkbox" 
 				name="checkbox" 

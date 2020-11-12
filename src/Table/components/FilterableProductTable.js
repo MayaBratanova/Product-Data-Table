@@ -3,13 +3,13 @@ import SearchBar from './SearchBar';
 import ProductTable from './ProductTable';
 import Checkbox from './Checkbox';
 
-const FilterableProductTable = ({products, title}) => {
+const FilterableProductTable = ({ products, title, size, tableHead }) => {
   const [filterText, setFilterText] = useState('');
   const [inStock, setInStock] = useState(false);
   
   return (
     <div className="filterable-table-container">
-      <h1>{title}</h1>
+      {title && <h1>{title}</h1>}
       <form className="filterable-search-bar">
         <SearchBar  
           filterText={filterText}
@@ -18,9 +18,10 @@ const FilterableProductTable = ({products, title}) => {
         <Checkbox   
           checked={inStock}
           onChange={setInStock}
+          size={size}
         />
       </form>
-      <ProductTable products={products} filterText={filterText} inStock={inStock} />
+      <ProductTable products={products} filterText={filterText} inStock={inStock} tableHead={tableHead} />
     </div>
   );
 }

@@ -2,7 +2,7 @@ import React from 'react';
 import ProductCategoryRow from './ProductCategoryRow';
 import ProductRow from './ProductRow';
 
-const ProductTable = ({ products, inStock, filterText }) => {
+const ProductTable = ({ products, inStock, filterText, tableHead }) => {
 
   const rows = [];
   let lastCategory = null;
@@ -31,12 +31,16 @@ const ProductTable = ({ products, inStock, filterText }) => {
     lastCategory = product.category;
   });
 
+  const tableHeaders = [];
+  tableHead.map((e) => {
+    tableHeaders.push(<th key={e}>{e}</th>)
+  });
+
   return (
     <table className="filterable-table">
       <thead>
         <tr>
-          <th>Name</th>
-          <th>Price</th>
+         {tableHeaders}
         </tr>
       </thead>
       <tbody>{rows}</tbody>
